@@ -42,74 +42,80 @@ class _UiControlsViewState extends State<_UiControlsView> {
           },
         ),
 
-        RadioListTile(
-          title: const Text('Car'),
-          subtitle: const Text('Viajar en auto'),
-          value: Transportation.car,
-          groupValue: selectedTransportation,
-          onChanged:
-              (value) => setState(() {
-                selectedTransportation = Transportation.car;
-              }),
-        ),
-        RadioListTile(
-          title: const Text('Plane'),
-          subtitle: const Text('Viajar en avión'),
-          value: Transportation.plane,
-          groupValue: selectedTransportation,
-          onChanged:
-              (value) => setState(() {
-                selectedTransportation = Transportation.plane;
-              }),
-        ),
-        RadioListTile(
-          title: const Text('Boat'),
-          subtitle: const Text('Viajar en barco'),
-          value: Transportation.boat,
-          groupValue: selectedTransportation,
-          onChanged:
-              (value) => setState(() {
-                selectedTransportation = Transportation.boat;
-              }),
-        ),
-        RadioListTile(
-          title: const Text('Bicycle'),
-          subtitle: const Text('Viajar en bicicleta'),
-          value: Transportation.bicycle,
-          groupValue: selectedTransportation,
-          onChanged:
-              (value) => setState(() {
-                selectedTransportation = Transportation.bicycle;
-              }),
-        ),
-        RadioListTile(
-          title: const Text('Motorbike'),
-          subtitle: const Text('Viajar en moto'),
-          value: Transportation.motorbike,
-          groupValue: selectedTransportation,
-          onChanged:
-              (value) => setState(() {
-                selectedTransportation = Transportation.motorbike;
-              }),
-        ),
-        RadioListTile(
-          title: const Text('Train'),
-          value: Transportation.train,
-          groupValue: selectedTransportation,
-          onChanged:
-              (value) => setState(() {
-                selectedTransportation = Transportation.train;
-              }),
-        ),
-        RadioListTile(
-          title: const Text('Other'),
-          subtitle: const Text('Viajar en otro medio'),
-          value: Transportation.other,
-          groupValue: selectedTransportation,
-          onChanged:
-              (value) => setState(() {
-                selectedTransportation = Transportation.other;
-              }),
+        ExpansionTile(
+          title: const Text('Vehiculo de transporte'),
+          subtitle: Text('$selectedTransportation'),
+          children: [
+            RadioListTile(
+              title: const Text('Car'),
+              subtitle: const Text('Viajar en auto'),
+              value: Transportation.car,
+              groupValue: selectedTransportation,
+              onChanged:
+                  (value) => setState(() {
+                    selectedTransportation = Transportation.car;
+                  }),
+            ),
+            RadioListTile(
+              title: const Text('Plane'),
+              subtitle: const Text('Viajar en avión'),
+              value: Transportation.plane,
+              groupValue: selectedTransportation,
+              onChanged:
+                  (value) => setState(() {
+                    selectedTransportation = Transportation.plane;
+                  }),
+            ),
+            RadioListTile(
+              title: const Text('Boat'),
+              subtitle: const Text('Viajar en barco'),
+              value: Transportation.boat,
+              groupValue: selectedTransportation,
+              onChanged:
+                  (value) => setState(() {
+                    selectedTransportation = Transportation.boat;
+                  }),
+            ),
+            RadioListTile(
+              title: const Text('Bicycle'),
+              subtitle: const Text('Viajar en bicicleta'),
+              value: Transportation.bicycle,
+              groupValue: selectedTransportation,
+              onChanged:
+                  (value) => setState(() {
+                    selectedTransportation = Transportation.bicycle;
+                  }),
+            ),
+            RadioListTile(
+              title: const Text('Motorbike'),
+              subtitle: const Text('Viajar en moto'),
+              value: Transportation.motorbike,
+              groupValue: selectedTransportation,
+              onChanged:
+                  (value) => setState(() {
+                    selectedTransportation = Transportation.motorbike;
+                  }),
+            ),
+            RadioListTile(
+              title: const Text('Train'),
+              value: Transportation.train,
+              groupValue: selectedTransportation,
+              onChanged:
+                  (value) => setState(() {
+                    selectedTransportation = Transportation.train;
+                  }),
+            ),
+            RadioListTile(
+              title: const Text('Other'),
+              subtitle: const Text('Viajar en otro medio'),
+              value: Transportation.other,
+              groupValue: selectedTransportation,
+              onChanged:
+                  (value) => setState(() {
+                    selectedTransportation = Transportation.other;
+                  }),
+            ),
+          ],
         ),
       ],
     );
