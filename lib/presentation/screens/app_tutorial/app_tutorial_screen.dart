@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SlideInfo {
   final String title;
@@ -12,17 +13,17 @@ final slides = <SlideInfo>[
   SlideInfo(
     'Busca la comida',
     'Laborum officia ullamco cupidatat esse nisi esse cupidatat nulla adipisicing pariatur sit pariatur excepteur.',
-    '/assets/images/slide-1.png',
+    'assets/images/1.png',
   ),
   SlideInfo(
     'Entrega Rapida',
     'Do culpa elit laboris amet deserunt sint in culpa aliquip Lorem.',
-    '/assets/images/slide-2.png',
+    'assets/images/2.png',
   ),
   SlideInfo(
     'Disfruta la comida',
     'Culpa tempor eiusmod ex nisi adipisicing voluptate id proident sunt quis sit irure.',
-    '/assets/images/slide-3.png',
+    'assets/images/3.png',
   ),
 ];
 
@@ -34,18 +35,32 @@ class AppTutorialScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        physics: const BouncingScrollPhysics(),
-        children:
-            slides
-                .map(
-                  (slideData) => _Slide(
-                    title: slideData.title,
-                    caption: slideData.caption,
-                    imageUrl: slideData.imageUrl,
-                  ),
-                )
-                .toList(),
+      backgroundColor: Colors.white,
+      body: Stack(
+        children: [
+          PageView(
+            physics: const BouncingScrollPhysics(),
+            children:
+                slides
+                    .map(
+                      (slideData) => _Slide(
+                        title: slideData.title,
+                        caption: slideData.caption,
+                        imageUrl: slideData.imageUrl,
+                      ),
+                    )
+                    .toList(),
+          ),
+
+          Positioned(
+            right: 20,
+            top: 50,
+            child: TextButton(
+              child: Text('Salir'),
+              onPressed: () => context.pop(),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -64,6 +79,24 @@ class _Slide extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    final titleStyle = Theme.of(context).textTheme.titleLarge;
+    final captionStyle = Theme.of(context).textTheme.bodyMedium;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image(image: AssetImage(imageUrl)),
+            const SizedBox(height: 20),
+            Text(title, style: titleStyle),
+            const SizedBox(height: 10),
+            Text(caption, style: captionStyle),
+          ],
+        ),
+      ),
+    );
   }
 }
