@@ -12,6 +12,8 @@ class _SideMenuState extends State<SideMenu> {
 
   @override
   Widget build(BuildContext context) {
+    final hasNotch = MediaQuery.of(context).viewPadding.top > 35;
+
     return NavigationDrawer(
       selectedIndex: navDrawerIndex,
       onDestinationSelected: (index) {
@@ -20,6 +22,10 @@ class _SideMenuState extends State<SideMenu> {
         });
       },
       children: [
+        Padding(
+          padding: EdgeInsets.fromLTRB(28, hasNotch ? 10 : 20, 16, 10),
+          child: Text('Menu'),
+        ),
         NavigationDrawerDestination(
           icon: Icon(Icons.home),
           label: Text('Home'),
