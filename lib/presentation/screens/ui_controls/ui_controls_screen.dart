@@ -26,6 +26,9 @@ enum Transportation { car, plane, boat, bicycle, motorbike, train, other }
 class _UiControlsViewState extends State<_UiControlsView> {
   bool isDeveloperMode = true;
   Transportation selectedTransportation = Transportation.car;
+  bool wantsBreakfast = false;
+  bool wantsLunch = false;
+  bool wantsDinner = false;
 
   @override
   Widget build(BuildContext context) {
@@ -116,6 +119,34 @@ class _UiControlsViewState extends State<_UiControlsView> {
                   }),
             ),
           ],
+        ),
+
+        CheckboxListTile(
+          title: const Text('Desayuno?'),
+          subtitle: const Text('Incluir Desayuno?'),
+          value: wantsBreakfast,
+          onChanged:
+              (value) => setState(() {
+                wantsBreakfast = !wantsBreakfast;
+              }),
+        ),
+        CheckboxListTile(
+          title: const Text('Almuerzo?'),
+          subtitle: const Text('Incluir Almuerzo?'),
+          value: wantsLunch,
+          onChanged:
+              (value) => setState(() {
+                wantsLunch = !wantsLunch;
+              }),
+        ),
+        CheckboxListTile(
+          title: const Text('Cena?'),
+          subtitle: const Text('Incluir Cena?'),
+          value: wantsDinner,
+          onChanged:
+              (value) => setState(() {
+                wantsDinner = !wantsDinner;
+              }),
         ),
       ],
     );
