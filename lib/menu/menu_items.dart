@@ -16,6 +16,12 @@ class MenuItem {
 
 const appMenuItems = <MenuItem>[
   MenuItem(
+    title: 'Cambiar Tema',
+    subTitle: 'Cambiar el tema de la app',
+    link: '/theme-changer',
+    icon: Icons.palette_outlined,
+  ),
+  MenuItem(
     title: 'Counter Screen',
     subTitle: 'Pantalla que cuenta (cuentos?)',
     link: '/counter-screen',
